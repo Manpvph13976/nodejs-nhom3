@@ -10,3 +10,14 @@ export const list = async (req, res) => {
     });
   }
 };
+
+export const read = async (req, res) => {
+  try {
+    const product = await Product.findOne({ _id: req.params.id }).exec();
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(200).json({
+      error: "Can't find product",
+    });
+  }
+};
