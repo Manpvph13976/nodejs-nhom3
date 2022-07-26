@@ -9,6 +9,10 @@ const productSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  category: {
+    type: mongoose.ObjectId,
+    ref: "category",
+  },
 });
 
 export default mongoose.model("Product", productSchema);
